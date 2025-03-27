@@ -23,6 +23,13 @@ const GlobalStyles = StyleSheet.create({
   todoText: {
     fontSize: 16,
   },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
   addButton: {
     backgroundColor: '#007bff',
     padding: 15,
@@ -36,6 +43,44 @@ const GlobalStyles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     marginLeft: 10,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+  },
+  button: {
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    padding: 15,
+    borderRadius: 10,
+    flex: 1,
+  },
+  cancelButton: {
+    backgroundColor: '#ff4d4d',
+    marginRight: 10,
+  },
+  saveButton: {
+    backgroundColor: '#00cc66',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    marginLeft: 10, 
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+  },
+  descriptionInput: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 10,
+    height: 100,
+    textAlignVertical: 'top',
   },
 });
 
