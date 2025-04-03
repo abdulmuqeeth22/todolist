@@ -1,11 +1,33 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { 
+  View, Text, TextInput, TouchableOpacity, Alert 
+} from 'react-native';
 import GlobalStyles from '../styles/GlobalStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function AddTodoScreen({ navigation }) {
+export default function AddTodoScreen({ navigation, route }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+
+  const handleSave = () => {
+    if (!title.trim() || !description.trim()) {
+      Alert.alert('Validation Error', 'Both Title and Description are required.');
+      return;
+    }
+    if (route.params?.addTodo) {
+      route.params.addTodo({ 
+        title, 
+        description, 
+        isFinished: false 
+      });
+    }
+
+    Alert.alert('Success', 'Todo Added Successfully!', [
+      { text: 'OK', onPress: () => navigation.goBack() }
+    ]);
+    setTitle('');
+    setDescription('');
+  };
 
   return (
     <View style={GlobalStyles.container}>
@@ -33,12 +55,13 @@ export default function AddTodoScreen({ navigation }) {
           style={[GlobalStyles.cancelButton, GlobalStyles.button]}
           onPress={() => navigation.goBack()}
         >
-          <Icon name="times" size={20} color="#fff" />
-          <Text style={GlobalStyles.buttonText}>Cancel</Text>
+          <Icon name="arrow-left" size={20} color="#fff" />
+          <Text style={GlobalStyles.buttonText}>Back</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={[GlobalStyles.saveButton, GlobalStyles.button]}
+          onPress={handleSave}
         >
           <Icon name="check" size={20} color="#fff" />
           <Text style={GlobalStyles.buttonText}>Save</Text>
