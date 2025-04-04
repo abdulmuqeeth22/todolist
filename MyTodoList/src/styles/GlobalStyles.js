@@ -22,6 +22,8 @@ const GlobalStyles = StyleSheet.create({
   },
   todoText: {
     fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
   },
   input: {
     borderWidth: 1,
@@ -82,6 +84,25 @@ const GlobalStyles = StyleSheet.create({
     height: 100,
     textAlignVertical: 'top',
   },
+  titleRow: {
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'space-between',  
+    paddingVertical: 10,
+  },
+
+  controlPanel: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  
+  iconButton: {
+    marginHorizontal: 55,  
+    padding: 10,           
+  },
+  
 });
 
 export default GlobalStyles;
